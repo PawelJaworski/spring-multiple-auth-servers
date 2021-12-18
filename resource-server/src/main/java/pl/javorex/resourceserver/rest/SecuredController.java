@@ -7,9 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/secured")
 public class SecuredController {
-    @GetMapping
-    String index() {
-        return "hello world";
+    @GetMapping("/1")
+    String one() {
+        return "hello world 1";
     }
 
+    @GetMapping("/2")
+    String two() {
+        return "hello world 2";
+    }
 }
