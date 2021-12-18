@@ -19,7 +19,7 @@ public class ResourceServerConfig {
                                 .anyRequest().permitAll()
                 )
                 .oauth2Login(oauth2Login ->
-                        oauth2Login.loginPage("/oauth2/authorization/articles-client-oidc"))
+                        oauth2Login.loginPage("/oauth2/authorization/client-1"))
                 .oauth2Client(withDefaults());
         return http.build();
     }
