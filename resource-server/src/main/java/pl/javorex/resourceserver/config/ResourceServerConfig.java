@@ -17,32 +17,9 @@ public class ResourceServerConfig {
         http
                 .authorizeRequests(authorizeRequests ->
                         authorizeRequests
-                                .mvcMatchers("/login/alternative").authenticated()
-                )
-                .oauth2Login(oauth2Login ->
-                        oauth2Login.loginPage("/oauth2/authorization/client-2"))
-                .authorizeRequests(authorizeRequests ->
-                        authorizeRequests
                                 .mvcMatchers("/secured/**").authenticated()
                                 .anyRequest().permitAll()
-                )
-                .oauth2Login(oauth2Login ->
-                        oauth2Login.loginPage("/oauth2/authorization/client-1"))
-                .oauth2Client(withDefaults());
-        return http.build();
-    }
-
-    @Bean
-    @Order(1)
-    SecurityFilterChain securityFilterChain2(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests(authorizeRequests ->
-                        authorizeRequests
-                                .mvcMatchers("/login/alternative").authenticated()
-                )
-                .oauth2Login(oauth2Login ->
-                        oauth2Login.loginPage("/oauth2/authorization/client-2"))
-                .oauth2Client(withDefaults());
+                ).oauth2Login();
         return http.build();
     }
 }
