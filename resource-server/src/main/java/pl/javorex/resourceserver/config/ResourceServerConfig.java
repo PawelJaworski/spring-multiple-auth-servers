@@ -19,7 +19,8 @@ public class ResourceServerConfig {
                         authorizeRequests
                                 .mvcMatchers("/secured/**").authenticated()
                                 .anyRequest().permitAll()
-                ).oauth2Login();
+                )
+          .oauth2Login();
         return http.build();
     }
 }
